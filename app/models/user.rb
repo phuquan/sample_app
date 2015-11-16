@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 }, allow_blank: true
     def User.digest(string)
     	cost = 10
     	BCrypt::Password.create(string, cost: cost)
